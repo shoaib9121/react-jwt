@@ -18,7 +18,7 @@ export const UserInfoPage = () => {
     // on the page (see JSX below). 
     const [favoriteFood, setFavoriteFood] = useState(info.favoriteFood || '');
     const [hairColor, setHairColor] = useState(info.hairColor || '');
-    const [bio, setBio] = useState(info.bio || '');
+    const [name, setName] = useState(info.name || '');
 
     // These state variables control whether or not we show
     // the success and error message sections after making
@@ -43,7 +43,7 @@ export const UserInfoPage = () => {
             const response = await axios.put(`/api/users/${id}`, {
                 favoriteFood,
                 hairColor,
-                bio,
+                name,
             }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -64,7 +64,7 @@ export const UserInfoPage = () => {
     const resetValues = () => {
         setFavoriteFood(info.favoriteFood);
         setHairColor(info.hairColor);
-        setBio(info.bio);
+        setName(info.name);
     }
     
     // And here we have the JSX for our component. It's pretty straightforward
@@ -86,10 +86,10 @@ export const UserInfoPage = () => {
                     value={hairColor} />
             </label>
             <label>
-                Bio:
+                Name:
                 <input
-                    onChange={e => setBio(e.target.value)}
-                    value={bio} />
+                    onChange={e => setName(e.target.value)}
+                    value={name} />
             </label>
             <hr />
             <button onClick={saveChanges}>Save Changes</button>

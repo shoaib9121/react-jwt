@@ -23,6 +23,16 @@ export const LogInPage = () => {
         history.push('/');
     }
 
+    /**
+     * Sets Hard coded token to localStorage, Fake login
+     */
+    const handleLogin = () => {
+        const hardCodedToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxNjIzOTAyMiwiZW1haWwiOiJhYmNAZXhhbXBsZS5jb20iLCJpbmZvIjp7Im5hbWUiOiJTaG9haWIgQWhtYWQiLCJmYXZvcml0ZUZvb2QiOiJNYW5nbyIsImhhaXJDb2xvciI6IlJlZCJ9fQ.Bb_96C75Bs_3b8mawvfJtybSdnjN-cYwGvm42VQ-jH8'
+        setToken(hardCodedToken);
+        localStorage.setItem('token', hardCodedToken);
+        history.push('/');
+    }
+
     return (
         <div className="content-container">
             <h1>Log In</h1>
@@ -39,7 +49,7 @@ export const LogInPage = () => {
             <hr />
             <button
                 disabled={!emailValue || !passwordValue}
-                onClick={onLogInClicked}>Log In</button>
+                onClick={handleLogin}>Log In</button>
             <button onClick={() => history.push('/forgot-password')}>Forgot your password?</button>
             <button onClick={() => history.push('/signup')}>Don't have an account? Sign Up</button>
         </div>

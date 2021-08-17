@@ -3,6 +3,7 @@ import { LogInPage } from './pages/LogInPage';
 import { SignUpPage } from './pages/SignUpPage';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { PrivateRoute } from './auth/PrivateRoute';
+import { PublicRoute } from './auth/PublicRoute';
 
 export const Routes = () => {
     return (
@@ -11,9 +12,9 @@ export const Routes = () => {
                 <PrivateRoute path="/" exact>
                     <UserInfoPage />
                 </PrivateRoute>
-                <Route path="/login">
+                <PublicRoute path="/login">
                     <LogInPage />
-                </Route>
+                </PublicRoute>
                 <Route path="/signup">
                     <SignUpPage />
                 </Route>
